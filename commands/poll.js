@@ -5,6 +5,7 @@ const fs = require("fs")
 var data = JSON.parse(require("fs").readFileSync(process.cwd() + "/data.json"));
 
 
+
 module.exports = {
   name: "poll",
   description: "Creates a poll in the server.",
@@ -71,8 +72,12 @@ module.exports = {
             options: opts,
             attachment:attachment||"null"
           })
+          var udata = JSON.parse(require("fs").readFileSync(process.cwd() + "/userData.json"));
+          udata.push({"id":msg.id,"users":[interaction.user.id]})
           console.log(data)
           fs.writeFileSync(process.cwd() + "/data.json", JSON.stringify(data));
+          fs.writeFileSync(process.cwd() + "/userData.json", JSON.stringify(udata));
+
           msg.startThread({
             name: 'Poll Talk',
 	          autoArchiveDuration: 60*24,
