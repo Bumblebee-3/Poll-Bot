@@ -2,7 +2,7 @@ function deploy() {
   const { SlashCommandBuilder } = require('@discordjs/builders');
   const { REST } = require('@discordjs/rest');
   const { Routes } = require('discord-api-types/v9');
-  const clientId = '1048543886156501022'
+  const clientId = require("./config.json").clientId;
 
   const commands = [
     new SlashCommandBuilder()

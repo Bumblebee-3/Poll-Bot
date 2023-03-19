@@ -1,5 +1,5 @@
 const { ActionRowBuilder, StringSelectMenuBuilder } = require('discord.js');
-const ids = ["818377414367379487"]
+const ids = require("../config.json").ids;
 const fs = require("fs")
 
 var data = JSON.parse(require("fs").readFileSync(process.cwd() + "/data.json"));
@@ -78,7 +78,7 @@ module.exports = {
 	          autoArchiveDuration: 60*24,
 	          reason: 'Discuss about today\'s poll here!'
           })
-          embed.url="https://discordjs-bot-template-v14.blurr1447.repl.co/poll/"+msg.id
+          embed.url=require("../config.json").baseLink+msg.id
           msg.edit({ embeds: [embed],components:[row] });
 
         })

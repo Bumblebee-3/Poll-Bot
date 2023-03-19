@@ -24,7 +24,7 @@ module.exports = {
           return interaction.reply({ content: "Thanks for answering the poll! Your answer was Option " + interaction.values[0], ephemeral: true })
         }
       }
-      interaction.reply({ content: "An Error Occoured!", ephemeral: true })
+      interaction.reply({ content: "An error occoured!", ephemeral: true })
     }
 
   }
